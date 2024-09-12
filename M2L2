@@ -1,0 +1,47 @@
+import discord
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='#', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'We have logged in as {bot.user}')
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send(f'Hola, soy el ECObot!')
+
+@bot.command()
+async def commands(ctx):
+    await ctx.send(f'Mis comandos actuales son:#hello, #bye, #commands #teams y #tips, recuerda siempre escribir # antes de cada comando')
+
+@bot.command()
+async def tips(ctx):
+    await ctx.send(f'Aqui algunos tips para reducir el uso de luz y agua
+1.-Limpia lámparas y bombillos.
+2.-Usa luces LED.
+3.-Toma duchas cortas.
+4.-Desconecta los aparatos que no utilices.
+5.-Apaga el aire acondicionado si no estás en casa.
+6.-Usa la lavadora llena.
+7.-Cuando cocines, alista de una sola vez todos los alimentos de la nevera.')
+
+@bot.command()
+async def teams(ctx):
+    await ctx.send(f'Aqui hay algunas organizaciones enfocadas al cuidado del planeta:
+1.-La DWEJ
+2.-El ELPC
+3.-El SELC
+4.-La ELAW
+5.-La IEN')
+
+@bot.command()
+async def bye(ctx):
+    await ctx.send(f'Adios, espero que pases un maravilloso dia!')
+
+#Ideas para gastar menos agua, luz, etc.
+#Mencione grupos sin fines de lucro que busquen ayuda para disminuir la contaminación
+#Comandos
+
+bot.run()
